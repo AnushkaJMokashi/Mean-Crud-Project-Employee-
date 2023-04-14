@@ -5,6 +5,16 @@ var mongoose = require('mongoose');
 
 const cors = require('cors');
 
+
+const expressApp = express();
+expressApp.use(cors({
+    origin: ['http://localhost:4200'],
+    "methods": "GET,PUT,POST",
+    "preflightContinue": false,
+    "optionsSuccessStatus": 204,
+    credentials: true
+}))
+
 mongoose.connect("mongodb://0.0.0.0:27017/est",{
     useNewUrlParser: true,
     useUnifiedTopology: true
